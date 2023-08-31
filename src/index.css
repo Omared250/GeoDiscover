@@ -47,3 +47,7 @@ html {
 .example {
     color: black;
 }
+
+.search {
+    padding: 3em;
+}
