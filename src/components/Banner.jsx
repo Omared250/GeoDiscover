@@ -1,7 +1,13 @@
-import { Link } from "react-router-dom";
-import { Search } from "./Search";
+import { useNavigate } from "react-router-dom";
 
 export const Banner = () => {
+
+    const navigate = useNavigate();
+
+    const handleClick = () => {
+        navigate("/search")
+    }
+
     return (
         <section className="banner">
             <div className="inner">
@@ -12,9 +18,7 @@ export const Banner = () => {
                     and embark on a virtual journey across the globe with GeoDiscover.
                 </p>
             </div>
-            <Link to="search">
-                <button type="button" className="btn btn-light">Start Now!</button>
-            </Link>
+            <button onClick={ handleClick } type="button" className="btn btn-light">Start Now!</button>
         </section>
     );
 }
