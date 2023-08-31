@@ -1,9 +1,10 @@
+import { Banner } from "./components/Banner"
 
 function App() {
 
   return (
     <div>
-      <h1>HELOW</h1>
+      <Banner />
     </div>
   )
 }
