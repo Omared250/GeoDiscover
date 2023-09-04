@@ -1,8 +1,6 @@
 
 
 export const CountryCard = ({ cty }) => {
-
-    console.log( cty );
         
     return (
             <div className="card">

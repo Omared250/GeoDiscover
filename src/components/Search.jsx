@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { CountryCard } from "./CountryCard";
 import { getCountryByName } from "../api/getCountryByName";
+import { Error } from "./Error";
 
 export const Search = () => {
 
@@ -11,15 +12,14 @@ export const Search = () => {
         e.preventDefault();
         setInputValue(e.target.value);
     };
-    
 
     const onSearchSubmit = async (e) => {
         e.preventDefault();
         const data = await getCountryByName(inputValue);
-        setCountries(data);
+        data ? setCountries(data) : setCountries(null);
         setInputValue('');
-    };
-    
+    };    
+
     return(
         <>
             <div className="row search">
@@ -27,7 +27,7 @@ export const Search = () => {
                     <h4>Searching</h4>
                     <hr />
                     <form onSubmit={ onSearchSubmit } aria-label="form">
-                        <input 
+                        <input
                             type="text"
                             placeholder="Search a country"
                             className="form-control"
@@ -45,16 +45,16 @@ export const Search = () => {
 
                     <h4>Results</h4>
                     <hr />
-                    <div className="alert alert-danger animate__animated animate__fadeIn"
-                        aria-label="alert-danger" 
+                    {/* <div className="alert alert-danger animate__animated animate__fadeIn"
+                        aria-label="alert-danger"
                         style={{ display: inputValue.length === 0 && countries.length === 0 ? '' : 'none' }}
                     >
                         No Country
-                    </div>
+                    </div> */}
                     {
-                        countries.map(cty => (
-                            <CountryCard key={ cty.name.common } cty={ cty } /> 
-                        ))
+                        countries ? countries.map(cty => (
+                            <CountryCard key={ cty.name.common } cty={ cty } />
+                        )) : <Error />
                     }
                 </div>
             </div>
