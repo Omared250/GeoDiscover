@@ -16,7 +16,7 @@ export const Search = () => {
     const onSearchSubmit = async (e) => {
         e.preventDefault();
         const data = await getCountryByName(inputValue);
-        data ? setCountries(data) : setCountries(null);
+        setCountries(data);
         setInputValue('');
     };    
 
@@ -45,15 +45,9 @@ export const Search = () => {
 
                     <h4>Results</h4>
                     <hr />
-                    {/* <div className="alert alert-danger animate__animated animate__fadeIn"
-                        aria-label="alert-danger"
-                        style={{ display: inputValue.length === 0 && countries.length === 0 ? '' : 'none' }}
-                    >
-                        No Country
-                    </div> */}
                     {
                         countries ? countries.map(cty => (
-                            <CountryCard key={ cty.name.common } cty={ cty } />
+                            <CountryCard key={ cty.population } cty={ cty } />
                         )) : <Error />
                     }
                 </div>
