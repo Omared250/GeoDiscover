@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { CountryCard } from "./CountryCard";
 import { getCountryByName } from "../api/getCountryByName";
 import { Error } from "./Error";
@@ -23,7 +23,7 @@ export const Search = () => {
     return(
         <>
             <div className="row search">
-                <div className="col-5">
+                <div className="col-3">
                     <h4>Searching</h4>
                     <hr />
                     <form onSubmit={ onSearchSubmit } aria-label="form">
@@ -41,7 +41,7 @@ export const Search = () => {
                         </button>
                     </form>
                 </div>
-                <div className="col-7">
+                <div className="col-9">
 
                     <h4>Results</h4>
                     <hr />
