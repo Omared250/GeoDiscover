@@ -12,7 +12,7 @@ export const CountryCard = ({ cty }) => {
             try {
                 const { data } = await axios.get('https://api.pexels.com/v1/search', {
                     headers: {
-                        Authorization: `${process.env.API_KEY}`
+                        Authorization: `${import.meta.env.VITE_API_KEY}`
                     },
                     params: {
                         query: countryName,
