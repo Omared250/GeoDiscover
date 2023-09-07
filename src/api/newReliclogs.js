@@ -7,22 +7,30 @@ export const newReliclogs = async ( logMessage ) => {
     const level = logMessage.includes('failed') ? "ERROR" : "INFO";
 
     const logData = {
-        "common": {
-          "attributes": {       
-            "logtype": "browserlogs",
-            "service.name": "geodiscover",
-          }
-        },
-        "logs": [
-          {
             "timestamp": Date.now(),
-            "attributes": {
-              "message": logMessage,
-              "log.level": level,
-            }
-          }
-        ]
-      };
+            "message": logMessage,
+            "logtype": "Browser-logs",
+            "service": "geodiscover",
+            "log.level": level,
+        }
+
+    // const logData = {
+    //     "common": {
+    //       "attributes": {       
+    //         "logtype": "browserlogs",
+    //         "service.name": "geodiscover",
+    //       }
+    //     },
+    //     "logs": [
+    //       {
+    //         "timestamp": Date.now(),
+    //         "attributes": {
+    //           "message": logMessage,
+    //           "log.level": level,
+    //         }
+    //       }
+    //     ]
+    //   };
 
       try {
         const response = await axios.post(apiUrl, logData, {
