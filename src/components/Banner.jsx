@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom";
+import { newReliclogs } from "../api/newReliclogs";
 
 export const Banner = () => {
 
     const navigate = useNavigate();
 
     const handleClick = () => {
+        newReliclogs('Start Button have been clicked!')
         navigate("/search")
     }
 
