@@ -6,7 +6,9 @@ export const getCountryByName = async ( countryName ) => {
         const { data } = await axios.get(`https://restcountries.com/v3.1/name/${countryName}`)
         return data;
     } catch (error) {
-        newReliclogs(error.stack);
+        (async () => {
+            await newReliclogs(error.stack);
+        })();
         console.error(error);
     }
 }

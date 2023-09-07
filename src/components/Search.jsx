@@ -2,6 +2,7 @@ import { useState } from "react"
 import { CountryCard } from "./CountryCard";
 import { getCountryByName } from "../api/getCountryByName";
 import { Error } from "./Error";
+import { newReliclogs } from "../api/newReliclogs";
 
 export const Search = () => {
 
@@ -16,6 +17,11 @@ export const Search = () => {
     const onSearchSubmit = async (e) => {
         e.preventDefault();
         const data = await getCountryByName(inputValue);
+
+        data.forEach( async cty => {
+            await newReliclogs(`Country Searched: ${ cty.name.common }`);
+        });
+        
         setCountries(data);
         setInputValue('');
     };    

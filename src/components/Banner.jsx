@@ -6,7 +6,9 @@ export const Banner = () => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        newReliclogs('Start Button have been clicked!')
+        (async () => {
+            await newReliclogs('Start Button have been clicked!')
+        })();
         navigate("/search")
     }
 
