@@ -22,7 +22,7 @@ export const Banner = () => {
                     and embark on a virtual journey across the globe with GeoDiscover.
                 </p>
             </div>
-            <button onClick={ handleClick } type="button" className="btn btn-light">Start Now!</button>
+            <button onClick={ handleClick } type="button" className="btn">Start Now!</button>
         </section>
     );
 }
