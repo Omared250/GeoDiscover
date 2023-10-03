@@ -12,7 +12,6 @@ export const newReliclogs = async ( logMessage ) => {
             "logtype": "Browser-logs",
             "service": "geodiscover",
             "log.level": level,
-            "test": 12344
         }
 
     // const logData = {
