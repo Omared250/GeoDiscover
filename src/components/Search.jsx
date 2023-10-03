@@ -40,7 +40,7 @@ export const Search = () => {
                             onChange={ onInputChange }
 
                         />
-                        <button className="btn btn-outline-primary mt-2">
+                        <button className="btn btn-outline-secondary mt-2">
                             search
                         </button>
                     </form>
