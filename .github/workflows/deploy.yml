@@ -20,7 +20,7 @@ jobs:
 
     - name: Deploy to EC2
       run: |
-        ssh -o StrictHostKeyChecking=no -l ec2-user 3.253.127.26 <<-EOF
+        ssh -o StrictHostKeyChecking=no -l ec2-user 54.77.27.199 <<-EOF
           cd /home/ec2-user/GeoDiscover
           git pull
           npm run build
